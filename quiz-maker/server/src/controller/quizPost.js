@@ -6,6 +6,7 @@ const addQuiz = async (req,res)=>{
     try {
         const {title,questions} = req.body;
         const quizExists = await Quiz.exists({title});
+        console.log(title);
         if(quizExists){
             return res.status(403).send(`${title}  already exists`);
         }

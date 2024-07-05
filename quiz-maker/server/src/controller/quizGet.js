@@ -32,7 +32,7 @@ const getQuiz = async (req,res)=>{
     try {
         
         const id = req.params.id;
-        // console.log(id);
+        console.log(id);
         const quiz = await Quiz.findOne({title:id});
         if(!quiz){
             return res.status(404).send("Quiz Not found");

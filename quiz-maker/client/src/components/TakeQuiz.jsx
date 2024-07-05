@@ -66,7 +66,7 @@ const TakeQuiz = () => {
     useEffect(() => {
         const fetchQuiz = async () => {
             try {
-                const result = await axios.get(`http://localhost:5000/api/show-quiz/${id}`);
+                const result = await axios.get(`https://aspire-nex.onrender.com/api/show-quiz/${id}`);
                 setQuiz(result.data);
             } catch (error) {
                 console.error("Error fetching the quiz data:", error);

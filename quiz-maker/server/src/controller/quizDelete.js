@@ -6,7 +6,7 @@ const removeQuiz = async (req, res) => {
         // const { title } = req.body
         const title = req.params.title;
         const quiz = await Quiz.findOne({ title });
-        // console.log(title);
+        console.log(title);
         if (!quiz) {
             return res.status(404).send("Quiz not found");
         }

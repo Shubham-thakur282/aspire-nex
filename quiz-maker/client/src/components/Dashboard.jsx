@@ -95,7 +95,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchQuizzes = async () => {
             try {
-                const result = await axios.get("http://localhost:5000/api/show-quizes");
+                const result = await axios.get("https://aspire-nex.onrender.com/api/show-quizes");
                 setQuizzes(result.data);
             } catch (error) {
                 console.error("Error fetching quizzes:", error);
@@ -106,7 +106,7 @@ const Dashboard = () => {
 
     const handleDelete = async (title) => {
         try {
-            await axios.delete(`http://localhost:5000/api/remove-quiz/${title}`);
+            await axios.delete(`https://aspire-nex.onrender.com/api/remove-quiz/${title}`);
             setQuizzes(quizzes.filter(quiz => quiz.title !== title));
         } catch (error) {
             console.error("Error deleting quiz:", error);

@@ -81,7 +81,7 @@ const CreateQuiz = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/add-quiz", { title, questions });
+    await axios.post("https://aspire-nex.onrender.com/api/add-quiz", { title, questions });
     setTitle('');
     setQuestions([{ question: '', options: ['', '', '', ''], correct: [] }]);
     setShowPopup(true);
