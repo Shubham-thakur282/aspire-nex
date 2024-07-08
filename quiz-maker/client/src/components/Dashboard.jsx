@@ -118,17 +118,20 @@ const Dashboard = () => {
             <Logo />
             <Button to="/create-quiz">Add Quiz</Button>
             <TotalQuizzes>Total Quizzes: {quizzes.length}</TotalQuizzes>
-            <QuizListContainer>
-                {quizzes.map(quiz => (
-                    <QuizItem key={quiz._id}>
-                        <QuizTitle to={`/take-quiz/${quiz.title}`}>{quiz.title}</QuizTitle>
-                        <ActionButtons>
-                            <TakeQuizButton to={`/take-quiz/${quiz.title}`}>Take Quiz</TakeQuizButton>
-                            <DeleteButton onClick={() => handleDelete(quiz.title)}>Delete</DeleteButton>
-                        </ActionButtons>
-                    </QuizItem>
-                ))}
-            </QuizListContainer>
+            {!quizzes ? (<div><p>Loading...</p></div>) : (
+                <QuizListContainer>
+                    {quizzes.map(quiz => (
+                        <QuizItem key={quiz._id}>
+                            <QuizTitle to={`/take-quiz/${quiz.title}`}>{quiz.title}</QuizTitle>
+                            <ActionButtons>
+                                <TakeQuizButton to={`/take-quiz/${quiz.title}`}>Take Quiz</TakeQuizButton>
+                                <DeleteButton onClick={() => handleDelete(quiz.title)}>Delete</DeleteButton>
+                            </ActionButtons>
+                        </QuizItem>
+                    ))}
+                </QuizListContainer>
+            )
+            }
         </DashboardContainer>
     );
 };
